@@ -2,12 +2,13 @@
 
 function createCalendar(id, year, month) {
   const table = document.createElement('table');
+  table.id = id;
   const thead = document.createElement('thead'); 
   const tbody = document.createElement('tbody');
   const days = ['пн', 'вт', 'ср', 'чт', 'пт', 'cб', "вс"];
+
   const trForThead = document.createElement('tr');
 
-  table.id = id;
 
   for (let day in days) {
     const th = document.createElement('th');
@@ -22,7 +23,6 @@ function createCalendar(id, year, month) {
   const date = new Date(year, month - 1);
   let firstDay = date.getDay();
   firstDay === 0 ? 6 : firstDay;
-  console.log(firstDay)
   
   const dayInMonth = getDaysInMonth(year, month);
   let dayToAdd = 1 - firstDay;
